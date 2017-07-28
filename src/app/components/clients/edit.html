@@ -1,0 +1,95 @@
+<div layout-fill layout="column">
+    <md-card>
+        <form name="clientForm" flex layout="column" layout-margin ng-submit="$ctrl.done()" novalidate content-filter="$ctrl.filter = $filter">
+            <div class="md-title">Client</div>
+            <div layout="row">
+                <md-input-container>
+                    <label>First Name</label>
+                    <input name="firstName" required ng-model="$ctrl.item.firstName" type="text" style="min-width:100px;" />
+                    <div ng-messages="clientForm.firstName.$error">
+                        <div ng-message="required">First Name is required.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Last Name</label>
+                    <input name="lastName" required ng-model="$ctrl.item.lastName" type="text" style="min-width:100px;" />
+                    <div ng-messages="clientForm.lastName.$error">
+                        <div ng-message="required">Last Name is required.</div>
+                    </div>
+                </md-input-container>
+                <div flex></div>
+                <md-button class="md-icon-button md-raised md-accent" type="submit">
+                    <i class="fa fa-check"></i>
+                    <md-tooltip md-direction="top">Done</md-tooltip>
+                </md-button>
+                <md-button class="md-icon-button md-raised md-warn" type="button" ng-click="$ctrl.cancel()">
+                    <i class="fa fa-remove"></i>
+                    <md-tooltip md-direction="top">Cancel</md-tooltip>
+                </md-button>
+            </div>
+            <div layout="row">
+                <md-input-container>
+                    <label>Gender</label>
+                    <md-select ng-model="$ctrl.item.gender" style="min-width:100px;">
+                        <md-option value="1">Male</md-option>
+                        <md-option value="2">Female</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Date of Birth</label>
+                    <md-datepicker required ng-model="$ctrl.item.dob" name="dobField" md-open-on-focus></md-datepicker>
+                    <div ng-messages="clientForm.dobField.$error">
+                    <div ng-message="valid">The entered value is not a date!</div>
+                    <div ng-message="required">This date is required!</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="column" layout-gt-sm="row">
+                <div layout="column">
+                    <md-subtitle>Height</md-subtitle>
+                    <div layout="row">
+                        <md-input-container flex>
+                            <label>Feet</label>
+                            <input name="feet" required ng-model="$ctrl.item.height.feet" min="0" type="number" style="min-width:100px;" />
+                            <div ng-messages="clientForm.feet.$error">
+                                <div ng-message="required">Feet is required.</div>
+                                <div ng-message="min">Impossible!</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>Inches</label>
+                            <input name="inches" required ng-model="$ctrl.item.height.inches" min="0" max="11" type="number" style="min-width:100px;" />
+                            <div ng-messages="clientForm.inches.$error" multiple md-auto-hide="false">
+                                <div ng-message="required">Inches is required.</div>
+                                <div ng-message="max">12 inches is equal to 1 foot!</div>
+                                <div ng-message="min">Impossible!</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div layout="column">
+                    <md-subtitle>Weight</md-subtitle>
+                    <div layout="row">
+                        <md-input-container flex>
+                            <label>Pounds</label>
+                            <input name="pounds" required ng-model="$ctrl.item.weight.pounds" min="0" type="number" style="min-width:100px;" />
+                            <div ng-messages="clientForm.pounds.$error">
+                                <div ng-message="required">Pounds is required.</div>
+                                <div ng-message="min">Impossible!</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>Ounces</label>
+                            <input name="ounces" required ng-model="$ctrl.item.weight.ounces" min="0" max="15" type="number" style="min-width:100px;" />
+                            <div ng-messages="clientForm.ounces.$error" multiple md-auto-hide="false">
+                                <div ng-message="required">Ounces is required.</div>
+                                <div ng-message="max">16 ounces is equal to 1 pound!</div>
+                                <div ng-message="min">Impossible!</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </md-card>
+</div>

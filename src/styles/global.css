@@ -1,0 +1,33 @@
+.point {
+    cursor: pointer !important;
+}
+
+p, label, h1, h2, h3, h4, h5, h6, ol, ul {
+    margin: 0px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+[fullscreen].fullscreen {
+    position: fixed !important;
+    top: 0px !important;
+    bottom: 0px !important;
+    left: 0px !important;
+    right: 0px !important;
+    z-index: 80;
+    width: 100% !important;
+    height: 100% !important;
+    margin: auto !important;
+    padding: 0px !important;
+}

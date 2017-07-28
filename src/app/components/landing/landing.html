@@ -1,0 +1,13 @@
+<div flex layout="row" layout-wrap layout-padding layout-align="center start">    
+    <div ng-repeat="c in $ctrl.cards" ng-mouseenter="show = true" ng-mouseleave="show = false" style="width: 332px;">
+        <div layout="column" class="md-whiteframe-4dp point" ui-sref="{{c.link}}">
+            <md-toolbar class="md-primary" layout-align="center center">
+                <div class="md-title">{{c.name}}</div>
+            </md-toolbar>
+            <div flex layout="row" layout-padding md-colors="{ background: 'primary-hue-1', color: 'primary-hue-2' }"  layout-align="center center">
+                 <i class="fa" ng-class="c.icon" style="font-size:8em; text-align:center;"></i>
+            </div>
+            <md-tooltip md-direction="bottom">{{c.description}}</md-tooltip>
+        </div>
+    </div>
+</div>

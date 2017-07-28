@@ -1,0 +1,40 @@
+{
+    "version": "0.1.0",
+    "echoCommand": true,
+    "command": "npm",
+    "args": [ "run" ],
+    "isBackground": false,
+    "isBuildCommand": false,
+    "isShellCommand": true,
+    "suppressTaskName": false,
+    "tasks": [
+        {
+            "taskName": "tsc",
+            "problemMatcher": "$tsc"
+        },
+        {
+            "taskName": "webpack",
+            "args": [ "--", "--watch" ],
+            "isBuildCommand": true,
+            "problemMatcher": [
+                {
+                    "owner": "webpack",
+                    "severity": "error",
+                    "fileLocation": "relative", 
+                    "pattern": [
+                        {
+                            "regexp": "ERROR in (.*)",	
+                            "file" : 1 
+                        },
+                        {
+                            "regexp": "\\((\\d+),(\\d+)\\):(.*)",
+                            "line":1,
+                            "column": 2,
+                            "message": 3
+                        }			
+                    ]
+                }
+            ]
+        }
+    ]
+}

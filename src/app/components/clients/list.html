@@ -1,0 +1,42 @@
+<div layout="column" style="min-height:20em" content-filter="$ctrl.query.filter = $filter">
+    <md-card>
+        <div layout="row" layout-align="center center" layout-margin>
+            <div class="md-title">Clients</div>
+            <md-button class="md-icon-button md-raised" type="button" ng-click="$ctrl.create($event)">
+                <i class="fa fa-plus"></i>
+                <md-tooltip md-direction="top">Add</md-tooltip>
+            </md-button>
+            <div flex></div>
+        </div>
+        <md-table-container>
+            <table md-table>
+                <thead md-head md-order="$ctrl.query.order">
+                    <tr md-row>
+                        <th md-column md-order-by="firstName">First Name</th>
+                        <th md-column md-order-by="lastName">Last Name</th>
+                        <th md-column md-order-by="dob">Date of Birth</th>
+                        <th md-column md-numeric></th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row md-select-auto ng-repeat="client in $ctrl.data | filter: $ctrl.query.filter | orderBy: $ctrl.query.order | limitTo: $ctrl.query.limit : ($ctrl.query.page - 1) * $ctrl.query.limit" ui-sref="client-edit({clientId: client.id})" class="md-ink-ripple point">
+                        <td md-cell>{{client.firstName}}</td>
+                        <td md-cell>{{client.lastName}}</td>
+                        <td md-cell>{{client.dob | date:'yyyy-MM-dd'}}</md-datepicker></td>
+                        <td md-cell>
+                            <md-button class="md-icon-button md-primary" type="button" ui-sref="client-edit({clientId: client.id})">
+                                <i class="fa fa-pencil"></i>
+                                <md-tooltip md-direction="top">Edit</md-tooltip>
+                            </md-button>
+                            <md-button class="md-icon-button md-warn" type="button" ng-click="$ctrl.delete(client, $event); $event.stopPropagation();">
+                                <i class="fa fa-close"></i>
+                                <md-tooltip md-direction="top">Delete</md-tooltip>
+                            </md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+        <md-table-pagination md-limit="$ctrl.query.limit" md-limit-options="[1, 5, 10, 15]" md-page="$ctrl.query.page" md-total="{{($ctrl.data | filter: $ctrl.query.filter).length}}" md-page-select></md-table-pagination>
+    </md-card>
+</div>

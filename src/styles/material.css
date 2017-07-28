@@ -1,0 +1,33 @@
+
+[layout-margin][layout="row"] > *[layout-margin][layout="row"],
+[layout-margin][layout="row"] > *[layout-margin][layout="column"] > *,
+[layout-margin][layout="column"] > *[layout-margin][layout="row"],
+[layout-margin][layout="column"] > *[layout-margin][layout="column"] > * {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+[layout-margin][layout="row"] > *[layout-margin][layout="column"],
+[layout-margin][layout="row"] > *[layout-margin][layout="row"] > *,
+[layout-margin][layout="column"] > *[layout-margin][layout="column"],
+[layout-margin][layout="column"] > *[layout-margin][layout="row"] > * {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+md-input-container.md-no-errors {
+    margin-bottom: 0px;
+}
+
+md-input-container.md-no-errors .md-errors-spacer {
+    display: none;
+}
+
+md-input-container .md-errors-spacer {
+    display: none;
+}
+
+md-input-container[md-no-float],
+md-input-container.md-no-float {
+    margin-top: 0px;
+}

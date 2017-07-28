@@ -1,0 +1,32 @@
+<div layout="column" layout-fill>
+    <md-toolbar class="md-primary">
+        <div class="md-toolbar-tools" layout-align="space-between center">
+            <a href="#">
+                <i class="fa fa-trophy" aria-hidden="true"></i><span>FH</span>
+            </a>
+            <div layout="row" layout-align="end center">
+                <div flex class="fh-flex-in fh-flex-out" ng-show="!$ctrl.showSearch">
+                </div>
+                <md-button class="md-icon-button" ng-click="$ctrl.toggleSearch()" focus-if="$ctrl.focusSearchIcon">
+                    <md-tooltip>Search</md-tooltip>
+                    <i class="fa fa-search fa-2x"></i>
+                </md-button>
+                <div class="fh-flex-in fh-flex-out" ng-show="$ctrl.showSearch">
+                    <md-input-container md-no-float class="md-no-errors">
+                        <input placeholder="Search..." md-colors="{ background: 'primary-hue-1' }" ng-model="$root.contentFilter" ng-init="$root.contentFilter=''" focus-if="$ctrl.showSearch" ng-blur="$ctrl.blurSearch()" ng-keyup="$ctrl.onKeyUp($event)">
+                    </md-input-container>
+                </div>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-content layout="column" layout-xs="column" flex fullscreen>
+        <md-content layout="row" layout-align="start center" hide-xs>
+            <div ncy-breadcrumb style="white-space:nowrap;" flex></div>
+            <fullscreen-toggle></fullscreen-toggle>
+        </md-content>
+        <md-divider></md-divider>
+        <md-content flex layout="column">
+            <div flex layout-fill ui-view=""></div>
+        </md-content>
+    </md-content>
+</div>

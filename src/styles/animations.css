@@ -1,0 +1,108 @@
+ui-view,
+[ui-view=""] {
+    position: absolute;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+ui-view.ng-enter,
+[ui-view=""].ng-enter {
+    -webkit-animation-name: slideInLeft;
+    -webkit-animation-duration: 0.3s;
+    animation-name: slideInLeft;
+    animation-duration: 0.3s;
+    overflow: hidden;
+}
+
+ui-view.ng-leave,
+[ui-view=""].ng-leave {
+    -webkit-animation-name: slideOutRight;
+    -webkit-animation-duration: 0.3s;
+    animation-name: slideOutRight;
+    animation-duration: 0.3s;
+    overflow: hidden;
+}
+
+.fh-flex-in.ng-enter,
+.fh-flex-in.ng-hide-remove {
+  -webkit-animation: flexGrow 0.3s ease forwards;
+  -o-animation: flexGrow 0.3s ease forwards;
+  animation: flexGrow 0.3s ease forwards;
+}
+
+.fh-flex-out.ng-leave,
+.fh-flex-out.ng-hide-add {
+  -webkit-animation: flexShrink 0.3s ease forwards;
+  -o-animation: flexShrink 0.3s ease forwards;
+  animation: flexShrink 0.3s ease forwards;
+}
+
+.fh-push-in.ng-hide-add-active {
+    max-width: 0%;
+}
+
+.fh-push-in.ng-hide-remove {
+    -webkit-transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    max-width: 0%;
+}
+
+.fh-push-in.ng-hide-remove-active {
+    max-width: 100%;
+}
+
+@-webkit-keyframes flexGrow {
+    from {
+        flex: 0.0001;
+    }
+    to {
+        flex: 1;
+    }
+}
+@-o-keyframes flexGrow {
+    from {
+        flex: 0.0001;
+    }
+
+    to {
+        flex: 1;
+    }
+}
+@keyframes flexGrow {
+    from {
+        flex: 0.0001;
+    }
+
+    to {
+        flex: 1;
+    }
+}
+
+@-webkit-keyframes flexShrink {
+    from {
+        flex: 1;
+    }
+
+    to {
+        flex: 0.0001;
+    }
+}
+@-o-keyframes flexShrink {
+    from {
+        flex: 1;
+    }
+
+    to {
+        flex: 0.0001;
+    }
+}
+@keyframes flexShrink {
+    from {
+        flex: 1;
+    }
+
+    to {
+        flex: 0.0001;
+    }
+}
